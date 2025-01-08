@@ -1,4 +1,5 @@
-NAME = Colleen
+NAME = Grace
+KID = Grace_kid
 
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
@@ -11,7 +12,7 @@ $(NAME): $(NAME).c
 	$(CC) $(CFLAGS) -o $(NAME) $(NAME).c
 
 clean:
-	rm -f test_*
+	rm -f Grace_kid.c
 
 fclean: clean
 	rm -rf $(NAME)
@@ -19,5 +20,5 @@ fclean: clean
 re: fclean all
 
 test: re
-	./$(NAME) > test_$(NAME)
-	diff -s $(NAME).c test_$(NAME)
+	./$(NAME)
+	diff -s $(NAME).c $(KID).c
