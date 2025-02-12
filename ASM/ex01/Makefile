@@ -16,6 +16,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -f $(NAME)_kid.s
 
 re: fclean all
 
