@@ -16,6 +16,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf test_$(NAME)
 
 re: fclean all
 
