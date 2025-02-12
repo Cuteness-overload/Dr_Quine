@@ -1,17 +1,22 @@
-;a comment outside
-section .data
-msg db ";a comment outside%1$csection .data%1$cmsg db %2$c%3$s%2$c, 0, 10%1$csection .text%1$cglobal _start%1$cextern printf%1$c_start:%1$clea rdi, [rel msg]%1$cmov rsi, 10%1$cmov rdx, 34%1$c;a comment%1$clea rcx, [rel msg]%1$cxor rax, rax%1$ccall printf wrt ..plt%1$cmov rax, 60%1$cxor rdi, rdi%1$csyscall%1$c", 0, 10
-section .text
-global _start
+; Exterior Comment
+global main
+; This is a comment
 extern printf
-_start:
-lea rdi, [rel msg]
+colleen:
+mov rdi, format
 mov rsi, 10
 mov rdx, 34
-;a comment
-lea rcx, [rel msg]
-xor rax, rax
+mov rcx, format
+push rbx
 call printf wrt ..plt
-mov rax, 60
-xor rdi, rdi
-syscall
+pop rbx
+ret
+main:
+push rbx
+call colleen
+pop rbx
+mov rax, 0
+ret
+section .data
+format:
+db "; Exterior Comment%1$cglobal main%1$c; This is a comment%1$cextern printf%1$ccolleen:%1$cmov rdi, format%1$cmov rsi, 10%1$cmov rdx, 34%1$cmov rcx, format%1$cpush rbx%1$ccall printf wrt ..plt%1$cpop rbx%1$cret%1$cmain:%1$cpush rbx%1$ccall colleen%1$cpop rbx%1$cmov rax, 0%1$cret%1$csection .data%1$cformat:%1$cdb %2$c%3$s%2$c"

@@ -1,15 +1,15 @@
 NAME = Colleen
 
-ASM = nasm -f elf64
-CC = gcc -nostartfiles -lc
+CC = gcc 
+
 
 #############################################
 
 all: $(NAME)
 
 $(NAME): $(NAME).s
-	$(ASM) $^ -o $(NAME).o
-	$(CC) $(NAME).o -o $(NAME)
+	nasm -f elf64 $(NAME).s
+	gcc -lc -no-pie -o $(NAME) $(NAME).o
 
 clean:
 	rm -f Colleen.o
@@ -21,4 +21,4 @@ re: fclean all
 
 test: re
 	./$(NAME) > test_$(NAME)
-	diff -s $(NAME).c test_$(NAME)
+	diff -s $(NAME).s test_$(NAME)
