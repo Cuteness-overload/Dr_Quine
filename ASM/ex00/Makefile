@@ -9,7 +9,7 @@ all: $(NAME)
 
 $(NAME): $(NAME).s
 	nasm -f elf64 $(NAME).s
-	gcc -lc -no-pie -o $(NAME) $(NAME).o
+	gcc -lc -no-pie -z noexecstack -o $(NAME) $(NAME).o
 
 clean:
 	rm -f Colleen.o

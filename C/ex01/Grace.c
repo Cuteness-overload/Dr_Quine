@@ -1,5 +1,8 @@
-#include <stdio.h>/*commentwoohhoo*/
-#define A(x)int main(){char *a="#include <stdio.h>/*commentwoohhoo*/%c#define A(x)int main(){char *a=%c%s%c;FILE *fptr=fopen(%cGrace_kid.c%c, %cw%c);fprintf(fptr,a,10,34,a,34,34,34,34,34,10,10,10);fclose(fptr);return 0;}%c#define B(s)C(s)%c#define C(s)#s%cA(B(A(x)))";FILE *fptr=fopen("Grace_kid.c", "w");fprintf(fptr,a,10,34,a,34,34,34,34,34,10,10,10);fclose(fptr);return 0;}
+#include <stdio.h>
+/*
+commentwoohhoo
+*/
+#define A(x)int main(){char *a="#include <stdio.h>%1$c/*%1$ccommentwoohhoo%1$c*/%1$c#define A(x)int main(){char *a=%2$c%3$s%2$c;FILE *fptr=fopen(%2$cGrace_kid.c%2$c, %2$cw%2$c);fprintf(fptr,a,10,34,a);fclose(fptr);return 0;}%1$c#define B(s)C(s)%1$c#define C(s)#s%1$cA(B(A(x)))";FILE *fptr=fopen("Grace_kid.c", "w");fprintf(fptr,a,10,34,a);fclose(fptr);return 0;}
 #define B(s)C(s)
 #define C(s)#s
 A(B(A(x)))
