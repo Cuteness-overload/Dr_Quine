@@ -10,6 +10,7 @@ $(NAME): $(NAME).s
 
 clean:
 	rm -f $(NAME)_*
+	rm -f $(NAME).o
 
 fclean: clean
 	rm -rf $(NAME)
@@ -20,8 +21,6 @@ re: fclean all
 test: re
 	clear
 	./$(NAME)
-	@echo "\ndiff of $(NAME).s $(NAME)_5.s"
-	@-diff -s $(NAME).s $(NAME)_5.s 2>/dev/null || true
 	@echo "\ndiff of $(NAME).s $(NAME)_4.s"
 	@-diff -s $(NAME).s $(NAME)_4.s 2>/dev/null || true
 	@echo "\ndiff of $(NAME).s $(NAME)_3.s"
