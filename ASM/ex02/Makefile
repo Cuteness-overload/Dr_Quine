@@ -5,8 +5,8 @@ NAME = Sully
 all: $(NAME)
 
 $(NAME): $(NAME).s
-	nasm -f elf64 $(NAME).s -g -F dwarf
-	gcc -lc -no-pie -z noexecstack -o $(NAME) $(NAME).o -g3
+	nasm -f elf64 $(NAME).s
+	gcc -lc -no-pie -z noexecstack -o $(NAME) $(NAME).o
 
 clean:
 	rm -f $(NAME)_*
@@ -19,7 +19,6 @@ fclean: clean
 re: fclean all
 
 test: re
-	clear
 	./$(NAME)
 	@echo "\ndiff of $(NAME).s $(NAME)_4.s"
 	@-diff -s $(NAME).s $(NAME)_4.s 2>/dev/null || true

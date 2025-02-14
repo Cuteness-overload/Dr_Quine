@@ -19,10 +19,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	clear
 	./$(NAME)
-	@echo "\ndiff of $(NAME).c $(NAME)_5.c"
-	@-diff -s $(NAME).c $(NAME)_5.c 2>/dev/null || true
 	@echo "\ndiff of $(NAME).c $(NAME)_4.c"
 	@-diff -s $(NAME).c $(NAME)_4.c 2>/dev/null || true
 	@echo "\ndiff of $(NAME).c $(NAME)_3.c"
